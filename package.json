@@ -1,0 +1,36 @@
+{
+  "name": "xerom-power",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "ts-node --project tsconfig.seed.json src/lib/seed.ts"
+  },
+  "dependencies": {
+    "@next/swc-linux-arm64-musl": "^16.2.6",
+    "@tailwindcss/typography": "^0.5.13",
+    "iron-session": "^8.0.3",
+    "lucide-react": "^0.400.0",
+    "mongoose": "^8.5.1",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/prop-types": "^15.7.15",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/webidl-conversions": "^7.0.3",
+    "@types/whatwg-url": "^13.0.0",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
