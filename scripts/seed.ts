@@ -7,25 +7,14 @@
 
 import mongoose from 'mongoose'
 import { demoPosts } from '../src/lib/seedPosts'
+import Post from '../src/models/Post'
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/xerom_power'
-
-const PostSchema = new mongoose.Schema({
-  title: String,
-  slug: { type: String, unique: true },
-  excerpt: String,
-  content: String,
-  category: String,
-  author: String,
-  status: String,
-}, { timestamps: true })
 
 async function seed() {
   console.log('🌱 Connecting to MongoDB:', MONGODB_URI)
   await mongoose.connect(MONGODB_URI)
   console.log('✅ Connected')
-
-  const Post = mongoose.models.Post || mongoose.model('Post', PostSchema)
 
   let inserted = 0
   let skipped = 0
