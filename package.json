@@ -10,7 +10,7 @@
     "seed": "ts-node --project tsconfig.seed.json src/lib/seed.ts"
   },
   "dependencies": {
-    "@next/swc-linux-arm64-musl": "^16.2.6",
+
     "@tailwindcss/typography": "^0.5.13",
     "iron-session": "^8.0.3",
     "lucide-react": "^0.400.0",
