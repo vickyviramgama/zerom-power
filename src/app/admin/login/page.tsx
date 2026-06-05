@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { Sun, Lock, User } from 'lucide-react'
 
 export default function AdminLoginPage() {
@@ -85,6 +86,14 @@ export default function AdminLoginPage() {
                 <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Signing in…</>
               ) : 'Sign In'}
             </button>
+            <div className="text-center pt-1">
+              <Link
+                href="/admin/forgot-password"
+                className="text-white/40 hover:text-solar text-sm transition-colors"
+              >
+                Forgot password?
+              </Link>
+            </div>
           </form>
         </div>
 
