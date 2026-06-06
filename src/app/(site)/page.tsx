@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Zap, Shield, TrendingUp, Settings, CheckCircle, Phone } from 'lucide-react'
+import { ArrowRight, Zap, Shield, TrendingUp, Settings, CheckCircle, Phone, Building2, Wrench } from 'lucide-react'
 import ScrollReveal from '@/components/ScrollReveal'
 import Counter from '@/components/Counter'
 import FaqAccordion from '@/components/FaqAccordion'
@@ -58,7 +58,7 @@ export default async function HomePage() {
         overlay="rgba(5,8,15,0.62)"
         className="min-h-screen flex items-center"
       >
-        <div className="section-inner w-full pt-32 pb-24">
+        <div className="container mx-auto w-full pt-32 pb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left — copy */}
             <div>
@@ -93,30 +93,67 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Right — feature card */}
+            {/* Right — Creative Services Card */}
             <div className="hidden lg:block">
-              <Tilt3D intensity={6}>
-                <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-8">
-                  <div className="text-xs font-bold text-solar uppercase tracking-widest mb-6">Our Services</div>
-                  <div className="space-y-4">
-                    {[
-                      { icon: '⚡', title: 'Solar EPC',       sub: 'Engineering, Procurement & Construction' },
-                      { icon: '🏗️', title: 'Installation & C&C', sub: 'Civil, mechanical & electrical construction' },
-                      { icon: '🔧', title: 'O&M Services',    sub: 'Maximising plant availability & yield' },
-                      { icon: '📋', title: 'PMC & Project Mgmt', sub: 'End-to-end oversight & lifecycle management' },
-                    ].map(s => (
-                      <div key={s.title} className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors border border-white/8">
-                        <div className="w-10 h-10 rounded-xl bg-solar/20 border border-solar/30 flex items-center justify-center text-lg shrink-0">{s.icon}</div>
-                        <div>
-                          <div className="font-semibold text-white text-sm">{s.title}</div>
-                          <div className="text-white/40 text-xs mt-0.5">{s.sub}</div>
+              <Tilt3D intensity={5}>
+                <div className="relative rounded-3xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.07)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.12)' }}>
+                  {/* Top gradient bar */}
+                  <div className="h-1 w-full bg-gradient-to-r from-solar-gold via-solar to-solar-dark" />
+
+                  <div className="p-7">
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="w-2 h-2 rounded-full bg-solar animate-pulse" />
+                          <span className="text-xs font-bold text-solar uppercase tracking-widest">Our Expertise</span>
+                        </div>
+                        <p className="text-white/50 text-xs">End-to-end solar solutions</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs text-white/30 mb-0.5">Est.</div>
+                        <div className="font-display font-bold text-white text-sm">2010</div>
+                      </div>
+                    </div>
+
+                    {/* 2×2 Service Grid */}
+                    <div className="grid grid-cols-2 gap-3 mb-5">
+                      {[
+                        { Icon: Zap,       num: '01', title: 'Solar EPC',       sub: 'Engineering, Procurement & Construction', color: 'from-solar/20 to-solar-dark/10' },
+                        { Icon: Building2, num: '02', title: 'Installation',     sub: 'Civil, Mechanical & Electrical C&C',      color: 'from-blue-500/20 to-blue-700/10' },
+                        { Icon: Wrench,    num: '03', title: 'O&M Services',     sub: 'Maximising plant yield & availability',   color: 'from-emerald-500/20 to-emerald-700/10' },
+                        { Icon: TrendingUp,num: '04', title: 'PMC & Mgmt',       sub: 'End-to-end oversight & lifecycle',        color: 'from-purple-500/20 to-purple-700/10' },
+                      ].map(({ Icon, num, title, sub, color }) => (
+                        <div key={title} className={`relative rounded-2xl p-4 bg-gradient-to-br ${color} border border-white/8 group hover:border-white/20 transition-all duration-300 cursor-default`}>
+                          <div className="flex items-start justify-between mb-3">
+                            <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                              <Icon size={15} className="text-white/80" />
+                            </div>
+                            <span className="font-display font-bold text-white/15 text-xl leading-none group-hover:text-white/25 transition-colors">{num}</span>
+                          </div>
+                          <div className="font-semibold text-white text-xs leading-snug mb-1">{title}</div>
+                          <div className="text-white/35 text-[10px] leading-snug">{sub}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Performance strip */}
+                    <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/8 mb-5">
+                      <div className="flex-1">
+                        <div className="text-white/40 text-[10px] mb-1.5">Average Performance Ratio</div>
+                        <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                          <div className="h-full rounded-full bg-gradient-to-r from-solar-gold to-solar" style={{ width: '82%' }} />
                         </div>
                       </div>
-                    ))}
+                      <div className="font-display font-bold text-solar text-lg leading-none">82%</div>
+                    </div>
+
+                    {/* CTA */}
+                    <a href="tel:+919429767516" className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl font-semibold text-sm text-white transition-all duration-300 hover:shadow-glow hover:scale-[1.02]"
+                      style={{ background: 'linear-gradient(135deg,#e9393c,#ad2351)' }}>
+                      <Phone size={14} /> Call +91-9429767516
+                    </a>
                   </div>
-                  <Link href="/contact" className="mt-6 flex items-center justify-center gap-2 w-full py-3 rounded-2xl bg-solar text-white text-sm font-semibold hover:bg-solar-light transition-colors">
-                    <Phone size={14} /> Call +91-9429767516
-                  </Link>
                 </div>
               </Tilt3D>
             </div>
