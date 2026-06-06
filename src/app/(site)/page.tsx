@@ -53,25 +53,25 @@ export default async function HomePage() {
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
       <ParallaxHero
-        src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1920&q=85"
+        src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1920&q=90"
         speed={0.35}
-        overlay="rgba(5,8,15,0.62)"
+        overlayStyle="hero"
         className="min-h-screen flex items-center"
       >
         <div className="container mx-auto w-full pt-32 pb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left — copy */}
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-7 text-xs text-white/80 font-medium">
+              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-4 py-2 mb-7 text-xs text-white font-medium text-shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-solar animate-pulse" />
                 Powering a Sustainable Future Through Engineering Excellence
               </div>
-              <h1 className="font-display font-extrabold text-white leading-[1.08] mb-5"
+              <h1 className="font-display font-extrabold text-white leading-[1.08] mb-5 text-shadow-hero"
                 style={{ fontSize: 'clamp(40px,5.5vw,80px)' }}>
                 Clean Energy.<br />
                 <span className="text-solar">Smarter Future.</span>
               </h1>
-              <p className="text-white/65 text-lg leading-relaxed mb-9 max-w-lg">
+              <p className="text-white/80 text-lg leading-relaxed mb-9 max-w-lg text-shadow-sm">
                 Leading renewable energy solutions specialising in Solar EPC, Installation &amp; Construction, O&amp;M, PMC and End-to-End Project Management — delivering innovative, reliable, and sustainable energy solutions.
               </p>
               <div className="flex flex-wrap gap-4 mb-12">

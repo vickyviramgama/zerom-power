@@ -8,9 +8,10 @@ interface Props {
   className?: string
   children?: React.ReactNode
   overlay?: string
+  overlayStyle?: 'default' | 'hero' | 'dark'
 }
 
-export default function ParallaxHero({ src, speed = 0.4, className = '', children, overlay = 'rgba(5,8,15,0.65)' }: Props) {
+export default function ParallaxHero({ src, speed = 0.4, className = '', children, overlay = 'rgba(5,8,15,0.65)', overlayStyle = 'default' }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLDivElement>(null)
 
@@ -30,6 +31,17 @@ export default function ParallaxHero({ src, speed = 0.4, className = '', childre
     return () => window.removeEventListener('scroll', onScroll)
   }, [speed])
 
+  // Hero overlay: strong left-side darkening for text readability + subtle bottom fade
+  const heroOverlay = `
+    linear-gradient(105deg, rgba(5,8,15,0.92) 0%, rgba(5,8,15,0.78) 45%, rgba(5,8,15,0.30) 100%),
+    linear-gradient(180deg, rgba(5,8,15,0.25) 0%, rgba(5,8,15,0.10) 40%, rgba(5,8,15,0.70) 100%)
+  `
+
+  const defaultOverlay = `linear-gradient(180deg, ${overlay} 0%, rgba(5,8,15,0.5) 50%, rgba(5,8,15,0.9) 100%)`
+  const darkOverlay = `linear-gradient(180deg, rgba(5,8,15,0.72) 0%, rgba(5,8,15,0.65) 50%, rgba(5,8,15,0.85) 100%)`
+
+  const overlayCSS = overlayStyle === 'hero' ? heroOverlay : overlayStyle === 'dark' ? darkOverlay : defaultOverlay
+
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       <div
@@ -41,8 +53,8 @@ export default function ParallaxHero({ src, speed = 0.4, className = '', childre
           transition: 'transform 0.1s linear',
         }}
       />
-      <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, ${overlay} 0%, rgba(5,8,15,0.5) 50%, rgba(5,8,15,0.9) 100%)` }} />
-      <div className="relative z-10">{children}</div>
+      <div className="absolute inset-0" style={{ background: overlayCSS }} />
+      <div className="relative z-10 w-full">{children}</div>
     </div>
   )
 }

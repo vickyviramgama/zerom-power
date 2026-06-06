@@ -7,9 +7,13 @@ import ParallaxHero from '@/components/ParallaxHero'
 import ScrollReveal from '@/components/ScrollReveal'
 
 const contactInfo = [
-  { icon: <MapPin size={20} />,  title: 'Our Office',     lines: ['Shop No.1, Bakharla, New Shiv Temple', 'Porbandar, Gujarat – 360579'] },
+ {
+  icon: <MapPin size={20} />,
+  title: 'Our Office',
+  lines: ['026, Sai Flora Society, Sarkhej-Dholka Road, Kashindra, Ahmedabad - 382210']
+},
   { icon: <Phone size={20} />,   title: 'Phone',          lines: ['+91-9429767516'],                   href: 'tel:+919429767516' },
-  { icon: <Mail size={20} />,    title: 'Email',          lines: ['Info.zerompower@gmail.com'],         href: 'mailto:Info.zerompower@gmail.com' },
+  { icon: <Mail size={20} />,    title: 'Email',          lines: ['info@zerompower.com'],         href: 'mailto:info@zerompower.com' },
   { icon: <Clock size={20} />,   title: 'Working Hours',  lines: ['Mon – Sat: 9:00 AM – 6:00 PM', 'Sunday: Closed'] },
 ]
 
@@ -177,7 +181,7 @@ export default function ContactPage() {
           <ScrollReveal>
             <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm h-96">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59523.55024765785!2d69.55455!3d21.6417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be282c4c1c3c6df%3A0x5a21b2a55b86b1ef!2sPorbandar%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1260.522465193801!2d72.48184546165248!3d22.895021829944426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e91415f3c896f%3A0xe0eac584c6d1e6fc!2sSai%20Flora%2063!5e0!3m2!1sen!2sin!4v1780724363778!5m2!1sen!2sin"
                 width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade" title="ZEROM Power Location"
               />

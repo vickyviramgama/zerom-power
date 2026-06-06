@@ -227,4 +227,8 @@ body {
 @media (min-width: 640px)  { .section-inner { padding-left: 2rem;   padding-right: 2rem;   } }
 @media (min-width: 1024px) { .section-inner { padding-left: 3rem;   padding-right: 3rem;   } }
 @media (min-width: 1280px) { .section-inner { padding-left: 4rem;   padding-right: 4rem;   } }
+
+/* Hero text-shadow utility */
+.text-shadow-hero { text-shadow: 0 2px 24px rgba(5,8,15,0.7), 0 1px 4px rgba(5,8,15,0.5); }
+.text-shadow-sm   { text-shadow: 0 1px 8px rgba(5,8,15,0.6); }
 @media (min-width: 1440px) { .section-inner { padding-left: 5rem;   padding-right: 5rem;   max-width: 1440px; } }

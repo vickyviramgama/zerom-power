@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, Save, Eye, ImageIcon, X } from 'lucide-react'
+import { ArrowLeft, Save, Eye, ImageIcon, X, Upload, Loader2 } from 'lucide-react'
 import Image from 'next/image'
 
 const categories = ['Solar EPC', 'O&M', 'Technology', 'Policy & Finance', 'Case Studies']
@@ -23,10 +23,34 @@ export function PostForm({ initial }: { initial?: any }) {
   })
   const [imageError, setImageError] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState('')
   const [error, setError] = useState('')
   const [preview, setPreview] = useState(false)
+  const fileRef = useRef<HTMLInputElement>(null)
 
   const set = (key: string, val: string) => setForm(f => ({ ...f, [key]: val }))
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    setUploadError('')
+    try {
+      const fd = new FormData()
+      fd.append('file', file)
+      const res = await fetch('/api/admin/upload', { method: 'POST', body: fd })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Upload failed')
+      set('coverImage', data.url)
+      setImageError(false)
+    } catch (err: any) {
+      setUploadError(err.message)
+    } finally {
+      setUploading(false)
+      if (fileRef.current) fileRef.current.value = ''
+    }
+  }
 
   const handleSubmit = async (status = form.status) => {
     if (!form.title || !form.content) { setError('Title and content are required.'); return }
@@ -91,8 +115,43 @@ export function PostForm({ initial }: { initial?: any }) {
         <div className="space-y-5">
           {/* Cover Image */}
           <div className="bg-white rounded-2xl border border-slate-100 p-6">
-            <h3 className="font-semibold text-navy mb-4 text-sm flex items-center gap-2"><ImageIcon size={14} className="text-solar" /> Cover Image</h3>
+            <h3 className="font-semibold text-navy mb-4 text-sm flex items-center gap-2">
+              <ImageIcon size={14} className="text-solar" /> Cover Image
+            </h3>
             <div className="space-y-3">
+
+              {/* Upload from device */}
+              <input
+                ref={fileRef}
+                type="file"
+                accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
+                className="hidden"
+                onChange={handleFileUpload}
+              />
+              <button
+                type="button"
+                onClick={() => fileRef.current?.click()}
+                disabled={uploading}
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border-2 border-dashed border-solar/30 bg-solar/5 text-solar text-sm font-medium hover:bg-solar/10 hover:border-solar/50 transition-all disabled:opacity-60"
+              >
+                {uploading
+                  ? <><Loader2 size={14} className="animate-spin" /> Uploading…</>
+                  : <><Upload size={14} /> Upload from Device</>
+                }
+              </button>
+
+              {uploadError && (
+                <p className="text-xs text-red-500">{uploadError}</p>
+              )}
+
+              {/* Divider */}
+              <div className="flex items-center gap-2 text-slate-300">
+                <div className="flex-1 h-px bg-slate-100" />
+                <span className="text-xs">or paste URL</span>
+                <div className="flex-1 h-px bg-slate-100" />
+              </div>
+
+              {/* URL input */}
               <div className="relative">
                 <input
                   type="url"
@@ -107,6 +166,8 @@ export function PostForm({ initial }: { initial?: any }) {
                   </button>
                 )}
               </div>
+
+              {/* Preview */}
               {form.coverImage && !imageError ? (
                 <div className="relative rounded-xl overflow-hidden aspect-video bg-slate-100 border border-slate-200">
                   <img
@@ -126,7 +187,7 @@ export function PostForm({ initial }: { initial?: any }) {
                   <span className="text-xs">Image preview</span>
                 </div>
               )}
-              <p className="text-xs text-slate-400">Paste a direct image URL. Recommended: 1200×630px.</p>
+              <p className="text-xs text-slate-400">Recommended: 1200×630px · Max 5 MB</p>
             </div>
           </div>
 

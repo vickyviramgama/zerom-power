@@ -78,7 +78,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex gap-3 text-sm">
                 <MapPin size={14} className="text-solar shrink-0 mt-0.5" />
-                <span className="text-white/40">Shop No.1, Bakharla, New Shiv Temple, Porbandar, Gujarat – 360579</span>
+                <span className="text-white/40">026, Sai Flora Society, Sarkhej-dholka Road, Kashindra, Ahmedabad -382210</span>
               </li>
               <li>
                 <a href="tel:+919429767516" className="flex gap-3 text-sm text-white/40 hover:text-solar transition-colors">
@@ -86,8 +86,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:Info.zerompower@gmail.com" className="flex gap-3 text-sm text-white/40 hover:text-solar transition-colors break-all">
-                  <Mail size={14} className="text-solar shrink-0 mt-0.5" /> Info.zerompower@gmail.com
+                <a href="mailto:info@zerompower.com" className="flex gap-3 text-sm text-white/40 hover:text-solar transition-colors break-all">
+                  <Mail size={14} className="text-solar shrink-0 mt-0.5" /> info@zerompower.com
                 </a>
               </li>
             </ul>
