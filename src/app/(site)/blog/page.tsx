@@ -1,13 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Calendar, Tag, ArrowRight } from 'lucide-react'
+import { CalendarDaysIcon, TagIcon, ArrowRightIcon } from '@/components/HeroIcons'
 import connectDB from '@/lib/mongodb'
 import Post from '@/models/Post'
 import { demoPosts } from '@/lib/seedPosts'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxHero from '@/components/ParallaxHero'
 import Tilt3D from '@/components/Tilt3D'
+
+const Calendar   = CalendarDaysIcon
+const Tag        = TagIcon
+const ArrowRight = ArrowRightIcon
 
 export const metadata: Metadata = {
   title: 'Solar Blog',

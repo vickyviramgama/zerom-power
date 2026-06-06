@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ChevronUp } from 'lucide-react'
+import { ChevronUpIcon } from '@/components/HeroIcons'
+const ChevronUp = ChevronUpIcon
 
 export default function ScrollTop() {
   const [visible, setVisible] = useState(false)

@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Plus } from 'lucide-react'
+import { PlusIcon, MinusIcon } from '@/components/HeroIcons'
+const Plus = PlusIcon
 
 const faqs = [
   { q: 'What is a Solar EPC contract?', a: "EPC (Engineering, Procurement & Construction) means we handle everything — design, sourcing equipment, and building the plant — giving you a single point of accountability." },

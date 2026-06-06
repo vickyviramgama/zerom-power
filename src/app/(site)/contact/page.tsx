@@ -2,9 +2,16 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react'
+import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon, PaperAirplaneIcon, CheckCircleIcon } from '@/components/HeroIcons'
 import ParallaxHero from '@/components/ParallaxHero'
 import ScrollReveal from '@/components/ScrollReveal'
+
+const MapPin      = MapPinIcon
+const Phone       = PhoneIcon
+const Mail        = EnvelopeIcon
+const Clock       = ClockIcon
+const Send        = PaperAirplaneIcon
+const CheckCircle = CheckCircleIcon
 
 const contactInfo = [
  {

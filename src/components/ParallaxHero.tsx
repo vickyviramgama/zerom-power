@@ -31,10 +31,10 @@ export default function ParallaxHero({ src, speed = 0.4, className = '', childre
     return () => window.removeEventListener('scroll', onScroll)
   }, [speed])
 
-  // Hero overlay: strong left-side darkening for text readability + subtle bottom fade
+  // Hero overlay: left side dark for text, right side lets image show through
   const heroOverlay = `
-    linear-gradient(105deg, rgba(5,8,15,0.92) 0%, rgba(5,8,15,0.78) 45%, rgba(5,8,15,0.30) 100%),
-    linear-gradient(180deg, rgba(5,8,15,0.25) 0%, rgba(5,8,15,0.10) 40%, rgba(5,8,15,0.70) 100%)
+    linear-gradient(100deg, rgba(4,9,20,0.88) 0%, rgba(4,9,20,0.65) 42%, rgba(4,9,20,0.18) 100%),
+    linear-gradient(180deg, rgba(4,9,20,0.15) 0%, rgba(4,9,20,0.05) 50%, rgba(4,9,20,0.55) 100%)
   `
 
   const defaultOverlay = `linear-gradient(180deg, ${overlay} 0%, rgba(5,8,15,0.5) 50%, rgba(5,8,15,0.9) 100%)`

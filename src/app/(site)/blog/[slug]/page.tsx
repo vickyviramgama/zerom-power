@@ -2,10 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { Calendar, Tag, User, ArrowLeft, ArrowRight } from 'lucide-react'
+import { CalendarDaysIcon, TagIcon, UserIcon, ArrowLeftIcon, ArrowRightIcon } from '@/components/HeroIcons'
 import connectDB from '@/lib/mongodb'
 import Post from '@/models/Post'
 import { demoPosts } from '@/lib/seedPosts'
+
+const Calendar   = CalendarDaysIcon
+const Tag        = TagIcon
+const User       = UserIcon
+const ArrowLeft  = ArrowLeftIcon
+const ArrowRight = ArrowRightIcon
 
 type Props = { params: { slug: string } }
 

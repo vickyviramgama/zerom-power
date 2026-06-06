@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react'
+import { MapPinIcon, PhoneIcon, EnvelopeIcon, ArrowTopRightOnSquareIcon } from '@/components/HeroIcons'
+const MapPin = MapPinIcon
+const Phone = PhoneIcon
+const Mail = EnvelopeIcon
+const ArrowUpRight = ArrowTopRightOnSquareIcon
 
 const services = ['Solar EPC', 'O&M Services', 'Hybrid Solar', 'Solar Financing', 'Energy Audit', 'PMC Services']
 const pages = ['About Us', 'Services', 'Projects', 'Blog', 'Contact']

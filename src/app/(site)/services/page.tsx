@@ -1,10 +1,18 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRightIcon, WrenchScrewdriverIcon, ClipboardDocumentListIcon, ChartBarIcon, BuildingStorefrontIcon, SparklesIcon, TrophyIcon } from '@/components/HeroIcons'
 import ParallaxHero from '@/components/ParallaxHero'
 import Tilt3D from '@/components/Tilt3D'
 import ScrollReveal from '@/components/ScrollReveal'
+
+const ArrowRight    = ArrowRightIcon
+const HardHat       = WrenchScrewdriverIcon
+const ClipboardList = ClipboardDocumentListIcon
+const BarChart3     = ChartBarIcon
+const Factory       = BuildingStorefrontIcon
+const Leaf          = SparklesIcon
+const Trophy        = TrophyIcon
 
 export const metadata: Metadata = {
   title: 'Our Services — ZEROM Power',
@@ -12,12 +20,12 @@ export const metadata: Metadata = {
 }
 
 const additionalServices = [
-  { id: 'ic',     icon: '⚙️', title: 'Installation & Construction', desc: 'Comprehensive civil, mechanical, and electrical construction services — from site preparation and foundation works to module installation, cable laying, inverter integration, and commissioning support.', tags: ['Civil Works','Module Installation','Commissioning'], img: 'https://images.unsplash.com/photo-1581093577421-f561a654a353?w=600&q=80' },
-  { id: 'pmc',    icon: '📋', title: 'PMC Services',                desc: 'Project Management Consultancy providing clients complete visibility and control throughout the project lifecycle — effective planning, coordination, risk management, quality control, and schedule adherence.', tags: ['Independent Oversight','Risk Management','Quality Control'], img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80' },
-  { id: 'pm',     icon: '🗂️', title: 'Project Management',          desc: 'Successful projects require effective coordination, timely decision-making, and disciplined execution. We focus on delivering projects safely, efficiently, and within budget — from planning and scheduling to contractor coordination and reporting.', tags: ['Planning & Scheduling','Contractor Coordination','Progress Monitoring'], img: 'https://images.unsplash.com/photo-1620714223084-8fcacc2dbed5?w=600&q=80' },
-  { id: 'sectors',icon: '🏭', title: 'Industries We Serve',         desc: 'ZEROM Power serves utility-scale power generation, industrial and manufacturing, commercial and retail, government, educational institutions, healthcare, mining operations, infrastructure developers, and agricultural projects.', tags: ['Utility-Scale','Industrial','Commercial'], img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80' },
-  { id: 'sustain',icon: '🌱', title: 'Sustainability Commitment',   desc: 'Committed to supporting the global transition towards clean energy by developing solutions that reduce carbon emissions, improve energy efficiency, and promote responsible resource utilisation through innovation and engineering excellence.', tags: ['Carbon Reduction','Energy Efficiency','Clean Energy'], img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80' },
-  { id: 'why',    icon: '🏆', title: 'Why Choose ZEROM Power',      desc: 'Multidisciplinary expertise across engineering, construction, project management and operations — end-to-end solutions under one roof, with strong quality assurance, safety compliance, and a commitment to delivering technically superior, economically viable results.', tags: ['End-to-End','Quality Assured','Expert Team'], img: 'https://images.unsplash.com/photo-1591964006776-90b2eb938b93?w=600&q=80' },
+  { id: 'ic',     Icon: HardHat,      title: 'Installation & Construction', desc: 'Comprehensive civil, mechanical, and electrical construction services — from site preparation and foundation works to module installation, cable laying, inverter integration, and commissioning support.', tags: ['Civil Works','Module Installation','Commissioning'], img: 'https://images.unsplash.com/photo-1581093577421-f561a654a353?w=600&q=80' },
+  { id: 'pmc',    Icon: ClipboardList,title: 'PMC Services',                desc: 'Project Management Consultancy providing clients complete visibility and control throughout the project lifecycle — effective planning, coordination, risk management, quality control, and schedule adherence.', tags: ['Independent Oversight','Risk Management','Quality Control'], img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80' },
+  { id: 'pm',     Icon: BarChart3,    title: 'Project Management',          desc: 'Successful projects require effective coordination, timely decision-making, and disciplined execution. We focus on delivering projects safely, efficiently, and within budget — from planning and scheduling to contractor coordination and reporting.', tags: ['Planning & Scheduling','Contractor Coordination','Progress Monitoring'], img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80' },
+  { id: 'sectors',Icon: Factory,      title: 'Industries We Serve',         desc: 'ZEROM Power serves utility-scale power generation, industrial and manufacturing, commercial and retail, government, educational institutions, healthcare, mining operations, infrastructure developers, and agricultural projects.', tags: ['Utility-Scale','Industrial','Commercial'], img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80' },
+  { id: 'sustain',Icon: Leaf,         title: 'Sustainability Commitment',   desc: 'Committed to supporting the global transition towards clean energy by developing solutions that reduce carbon emissions, improve energy efficiency, and promote responsible resource utilisation through innovation and engineering excellence.', tags: ['Carbon Reduction','Energy Efficiency','Clean Energy'], img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80' },
+  { id: 'why',    Icon: Trophy,       title: 'Why Choose ZEROM Power',      desc: 'Multidisciplinary expertise across engineering, construction, project management and operations — end-to-end solutions under one roof, with strong quality assurance, safety compliance, and a commitment to delivering technically superior, economically viable results.', tags: ['End-to-End','Quality Assured','Expert Team'], img: 'https://images.unsplash.com/photo-1591964006776-90b2eb938b93?w=600&q=80' },
 ]
 
 export default function ServicesPage() {
@@ -148,8 +156,8 @@ export default function ServicesPage() {
                       <Image src={s.img} alt={s.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-solar scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                      <div className="absolute top-4 left-4 w-11 h-11 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center text-xl shadow-sm">
-                        {s.icon}
+                      <div className="absolute top-4 left-4 w-11 h-11 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm">
+                        <s.Icon size={20} className="text-solar" />
                       </div>
                     </div>
                     <div className="p-6">
@@ -171,7 +179,7 @@ export default function ServicesPage() {
 
       {/* CTA Parallax */}
       <ParallaxHero
-        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80"
+        src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80"
         className="py-28"
         overlay="rgba(5,8,15,0.75)"
       >

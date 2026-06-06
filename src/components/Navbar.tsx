@@ -4,7 +4,10 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone } from 'lucide-react'
+import { Bars3Icon, XMarkIcon, PhoneIcon } from '@/components/HeroIcons'
+const Menu = Bars3Icon
+const X = XMarkIcon
+const Phone = PhoneIcon
 
 const links = [
   { href: '/',         label: 'Home' },

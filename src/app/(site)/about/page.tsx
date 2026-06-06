@@ -1,10 +1,20 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRightIcon, EyeIcon, BoltIcon, SparklesIcon, ShieldCheckIcon, TrophyIcon, LightBulbIcon, HandRaisedIcon, CheckCircleIcon } from '@/components/HeroIcons'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxHero from '@/components/ParallaxHero'
 import Tilt3D from '@/components/Tilt3D'
+
+const ArrowRight     = ArrowRightIcon
+const Eye            = EyeIcon
+const Target         = BoltIcon
+const Leaf           = SparklesIcon
+const Lightbulb      = LightBulbIcon
+const HeartHandshake = HandRaisedIcon
+const ShieldCheck    = ShieldCheckIcon
+const Trophy         = TrophyIcon
+const CheckCircle2   = CheckCircleIcon
 
 export const metadata: Metadata = {
   title: 'About Us — ZEROM Power',
@@ -12,11 +22,11 @@ export const metadata: Metadata = {
 }
 
 const values = [
-  { icon: '🌱', title: 'Sustainability', desc: 'Sustainability is at the core of everything we do — supporting the global transition towards clean energy by reducing carbon emissions and promoting responsible resource utilisation.' },
-  { icon: '💡', title: 'Innovation',     desc: 'Combining technical expertise with practical execution capabilities, utilising advanced monitoring systems and data-driven analytics to proactively resolve performance issues.' },
-  { icon: '🤝', title: 'Customer-First', desc: 'Tailored solutions for the unique requirements of each client — from concept development through to long-term asset management and operational support.' },
-  { icon: '🛡️', title: 'Integrity',      desc: 'Ethical business practices with complete transparency, quality assurance, safety compliance, and full accountability at every stage of the project lifecycle.' },
-  { icon: '🏆', title: 'Excellence',     desc: 'Relentless focus on quality, safety, and operational excellence — delivering technically superior and economically viable renewable energy solutions.' },
+  { Icon: Leaf,           title: 'Sustainability', desc: 'Sustainability is at the core of everything we do — supporting the global transition towards clean energy by reducing carbon emissions and promoting responsible resource utilisation.' },
+  { Icon: Lightbulb,      title: 'Innovation',     desc: 'Combining technical expertise with practical execution capabilities, utilising advanced monitoring systems and data-driven analytics to proactively resolve performance issues.' },
+  { Icon: HeartHandshake, title: 'Customer-First', desc: 'Tailored solutions for the unique requirements of each client — from concept development through to long-term asset management and operational support.' },
+  { Icon: ShieldCheck,    title: 'Integrity',      desc: 'Ethical business practices with complete transparency, quality assurance, safety compliance, and full accountability at every stage of the project lifecycle.' },
+  { Icon: Trophy,         title: 'Excellence',     desc: 'Relentless focus on quality, safety, and operational excellence — delivering technically superior and economically viable renewable energy solutions.' },
 ]
 
 const missions = [
@@ -32,7 +42,7 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <ParallaxHero
-        src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1920&q=80"
+        src="https://images.unsplash.com/photo-1548337138-e87d889cc369?w=1920&q=80"
         className="min-h-[55vh] flex items-center"
         overlay="rgba(5,8,15,0.68)"
       >
@@ -102,7 +112,9 @@ export default function AboutPage() {
             <ScrollReveal direction="right">
               <Tilt3D intensity={5}>
                 <div className="card-light p-10 h-full">
-                  <div className="w-14 h-14 rounded-2xl bg-solar/10 border border-solar/20 mx-auto mb-6 flex items-center justify-center text-3xl">👁️</div>
+                  <div className="w-14 h-14 rounded-2xl bg-solar/10 border border-solar/20 mx-auto mb-6 flex items-center justify-center">
+                    <Eye size={26} className="text-solar" />
+                  </div>
                   <h3 className="font-display font-bold text-navy text-xl mb-4">Our Vision</h3>
                   <p className="text-slate-500 leading-relaxed">
                     To become a trusted leader in the renewable energy sector by delivering innovative and sustainable energy solutions that drive energy independence, environmental responsibility, and long-term value for our clients and communities.
@@ -113,12 +125,14 @@ export default function AboutPage() {
             <ScrollReveal direction="left" delay={100}>
               <Tilt3D intensity={5}>
                 <div className="card-light p-10 h-full">
-                  <div className="w-14 h-14 rounded-2xl bg-solar/10 border border-solar/20 mx-auto mb-6 flex items-center justify-center text-3xl">🎯</div>
+                  <div className="w-14 h-14 rounded-2xl bg-solar/10 border border-solar/20 mx-auto mb-6 flex items-center justify-center">
+                    <Target size={26} className="text-solar" />
+                  </div>
                   <h3 className="font-display font-bold text-navy text-xl mb-4">Our Mission</h3>
                   <ul className="space-y-3">
                     {missions.map((m, i) => (
                       <li key={i} className="flex gap-3 text-slate-500 text-sm">
-                        <span className="text-solar mt-0.5 shrink-0 font-bold">✓</span>{m}
+                        <CheckCircle2 size={15} className="text-solar mt-0.5 shrink-0" />{m}
                       </li>
                     ))}
                   </ul>
@@ -143,7 +157,9 @@ export default function AboutPage() {
               <ScrollReveal key={v.title} delay={i * 70}>
                 <Tilt3D intensity={7}>
                   <div className="card-light p-7 text-center group h-full">
-                    <div className="w-14 h-14 rounded-2xl bg-solar/10 border border-solar/20 mx-auto mb-5 flex items-center justify-center text-2xl group-hover:bg-solar group-hover:border-solar transition-all">{v.icon}</div>
+                    <div className="w-14 h-14 rounded-2xl bg-solar/10 border border-solar/20 mx-auto mb-5 flex items-center justify-center group-hover:bg-solar group-hover:border-solar transition-all">
+                    <v.Icon size={24} className="text-solar group-hover:text-white transition-colors" />
+                  </div>
                     <h4 className="font-display font-bold text-navy mb-3">{v.title}</h4>
                     <p className="text-slate-400 text-sm leading-relaxed">{v.desc}</p>
                   </div>

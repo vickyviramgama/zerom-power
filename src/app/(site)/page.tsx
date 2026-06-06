@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Zap, Shield, TrendingUp, Settings, CheckCircle, Phone, Building2, Wrench } from 'lucide-react'
+import {
+  ArrowRightIcon, SunIcon, WrenchScrewdriverIcon, BoltIcon,
+  ClipboardDocumentListIcon, ChartBarIcon, RectangleStackIcon,
+  PhoneIcon, ShieldCheckIcon, SparklesIcon, TrophyIcon,
+  StarIcon, CheckBadgeIcon,
+} from '@/components/HeroIcons'
 import ScrollReveal from '@/components/ScrollReveal'
 import Counter from '@/components/Counter'
 import FaqAccordion from '@/components/FaqAccordion'
@@ -9,6 +14,20 @@ import ParallaxHero from '@/components/ParallaxHero'
 import Tilt3D from '@/components/Tilt3D'
 import connectDB from '@/lib/mongodb'
 import Post from '@/models/Post'
+
+const ArrowRight    = ArrowRightIcon
+const Sun           = SunIcon
+const HardHat       = WrenchScrewdriverIcon
+const Activity      = BoltIcon
+const ClipboardList = ClipboardDocumentListIcon
+const BarChart3     = ChartBarIcon
+const Layers        = RectangleStackIcon
+const Phone         = PhoneIcon
+const ShieldCheck   = ShieldCheckIcon
+const Leaf          = SparklesIcon
+const Trophy        = TrophyIcon
+const Sparkles      = StarIcon
+const SunMedium     = CheckBadgeIcon
 
 export const metadata: Metadata = {
   title: 'ZEROM Power — Solar EPC & O&M Solutions',
@@ -24,12 +43,12 @@ async function getLatestPosts() {
 }
 
 const services = [
-  { icon: Zap,         title: 'Solar EPC',          desc: 'Complete Engineering, Procurement & Construction solutions covering feasibility studies, detailed engineering, procurement, construction management, testing and commissioning.', tags: ['Design','Procurement','Install'], img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80' },
-  { icon: Settings,    title: 'Installation & C&C', desc: 'Comprehensive civil, mechanical and electrical construction services — from site preparation and foundation works to module installation, cable laying and commissioning support.', tags: ['Civil','Mechanical','Electrical'], img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80' },
-  { icon: Shield,      title: 'Operation & Maintenance', desc: 'Professional O&M services maximising plant availability and energy generation through preventive maintenance, corrective actions, performance monitoring and detailed reporting.', tags: ['SCADA','Preventive','Yield'], img: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80' },
-  { icon: TrendingUp,  title: 'PMC Services',        desc: 'Project Management Consultancy providing clients complete visibility and control — effective planning, coordination, risk management, quality control and schedule adherence.', tags: ['Oversight','Risk','Control'], img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80' },
-  { icon: CheckCircle, title: 'Project Management',  desc: 'End-to-end project delivery focused on safe, efficient, and on-budget execution — from planning and scheduling to contractor coordination, progress monitoring and reporting.', tags: ['Planning','Coordination','Delivery'], img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80' },
-  { icon: Settings,    title: 'End-to-End Solutions', desc: 'Integrated renewable energy solutions spanning the entire project lifecycle — from concept development and engineering design to construction, commissioning and long-term asset management.', tags: ['Lifecycle','Asset Mgmt','Integration'], img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
+  { icon: Sun,          title: 'Solar EPC',               desc: 'Complete Engineering, Procurement & Construction solutions covering feasibility studies, detailed engineering, procurement, construction management, testing and commissioning.', tags: ['Design','Procurement','Install'], img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80' },
+  { icon: HardHat,      title: 'Installation & C&C',      desc: 'Comprehensive civil, mechanical and electrical construction services — from site preparation and foundation works to module installation, cable laying and commissioning support.', tags: ['Civil','Mechanical','Electrical'], img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80' },
+  { icon: Activity,     title: 'Operation & Maintenance', desc: 'Professional O&M services maximising plant availability and energy generation through preventive maintenance, corrective actions, performance monitoring and detailed reporting.', tags: ['SCADA','Preventive','Yield'], img: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80' },
+  { icon: ClipboardList,title: 'PMC Services',             desc: 'Project Management Consultancy providing clients complete visibility and control — effective planning, coordination, risk management, quality control and schedule adherence.', tags: ['Oversight','Risk','Control'], img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80' },
+  { icon: BarChart3,    title: 'Project Management',      desc: 'End-to-end project delivery focused on safe, efficient, and on-budget execution — from planning and scheduling to contractor coordination, progress monitoring and reporting.', tags: ['Planning','Coordination','Delivery'], img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80' },
+  { icon: Layers,       title: 'End-to-End Solutions',    desc: 'Integrated renewable energy solutions spanning the entire project lifecycle — from concept development and engineering design to construction, commissioning and long-term asset management.', tags: ['Lifecycle','Asset Mgmt','Integration'], img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80' },
 ]
 
 const stats = [
@@ -53,7 +72,7 @@ export default async function HomePage() {
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
       <ParallaxHero
-        src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1920&q=90"
+        src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1920&q=90"
         speed={0.35}
         overlayStyle="hero"
         className="min-h-screen flex items-center"
@@ -119,10 +138,10 @@ export default async function HomePage() {
                     {/* 2×2 Service Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-5">
                       {[
-                        { Icon: Zap,       num: '01', title: 'Solar EPC',       sub: 'Engineering, Procurement & Construction', color: 'from-solar/20 to-solar-dark/10' },
-                        { Icon: Building2, num: '02', title: 'Installation',     sub: 'Civil, Mechanical & Electrical C&C',      color: 'from-blue-500/20 to-blue-700/10' },
-                        { Icon: Wrench,    num: '03', title: 'O&M Services',     sub: 'Maximising plant yield & availability',   color: 'from-emerald-500/20 to-emerald-700/10' },
-                        { Icon: TrendingUp,num: '04', title: 'PMC & Mgmt',       sub: 'End-to-end oversight & lifecycle',        color: 'from-purple-500/20 to-purple-700/10' },
+                        { Icon: Sun,          num: '01', title: 'Solar EPC',    sub: 'Engineering, Procurement & Construction', color: 'from-solar/20 to-solar-dark/10' },
+                        { Icon: HardHat,      num: '02', title: 'Installation', sub: 'Civil, Mechanical & Electrical C&C',      color: 'from-blue-500/20 to-blue-700/10' },
+                        { Icon: Activity,     num: '03', title: 'O&M Services', sub: 'Maximising plant yield & availability',   color: 'from-emerald-500/20 to-emerald-700/10' },
+                        { Icon: ClipboardList,num: '04', title: 'PMC & Mgmt',   sub: 'End-to-end oversight & lifecycle',        color: 'from-purple-500/20 to-purple-700/10' },
                       ].map(({ Icon, num, title, sub, color }) => (
                         <div key={title} className={`relative rounded-2xl p-4 bg-gradient-to-br ${color} border border-white/8 group hover:border-white/20 transition-all duration-300 cursor-default`}>
                           <div className="flex items-start justify-between mb-3">
@@ -298,29 +317,29 @@ export default async function HomePage() {
 
       {/* ── WHY US — parallax ─────────────────────────────── */}
       <ParallaxHero
-        src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1920&q=85"
+        src="https://images.unsplash.com/photo-1548337138-e87d889cc369?w=1920&q=85"
         speed={0.3}
-        overlay="rgba(5,8,15,0.72)"
+        overlayStyle="dark"
         className="py-24"
       >
         <div className="section-inner">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <ScrollReveal direction="right">
               <div className="label mb-4">Why ZEROM Power</div>
-              <h2 className="font-display font-extrabold text-white leading-tight mb-4" style={{ fontSize: 'clamp(30px,3.5vw,48px)' }}>
+              <h2 className="font-display font-extrabold text-white leading-tight mb-4 text-shadow-hero" style={{ fontSize: 'clamp(30px,3.5vw,48px)' }}>
                 The Partner You Can<br /><span className="text-solar">Trust for the Long Term</span>
               </h2>
               <div className="divider" />
               <div className="space-y-4 mb-8">
                 {[
-                  ['Multidisciplinary Expertise','Extensive industry experience across engineering, construction, project management, and operations.'],
-                  ['End-to-End Solutions','Integrated solutions under one roof — simplifying project execution and creating a seamless experience.'],
-                  ['Quality & Safety Focus','Strong quality assurance and safety compliance ensuring every project meets the highest industry standards.'],
-                  ['Sustainability at Core','Committed to reducing carbon emissions, improving energy efficiency, and promoting responsible resource utilisation.'],
-                ].map(([t,d])=>(
+                  { Icon: Trophy,     t:'Multidisciplinary Expertise', d:'Extensive industry experience across engineering, construction, project management, and operations.' },
+                  { Icon: Layers,     t:'End-to-End Solutions',        d:'Integrated solutions under one roof — simplifying project execution and creating a seamless experience.' },
+                  { Icon: ShieldCheck,t:'Quality & Safety Focus',      d:'Strong quality assurance and safety compliance ensuring every project meets the highest industry standards.' },
+                  { Icon: Leaf,       t:'Sustainability at Core',      d:'Committed to reducing carbon emissions, improving energy efficiency, and promoting responsible resource utilisation.' },
+                ].map(({Icon, t, d})=>(
                   <div key={t} className="flex gap-4">
-                    <div className="w-8 h-8 rounded-lg bg-solar/20 border border-solar/30 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle size={14} className="text-solar" />
+                    <div className="w-9 h-9 rounded-xl bg-solar/20 border border-solar/40 flex items-center justify-center shrink-0 mt-0.5">
+                      <Icon size={16} className="text-solar" />
                     </div>
                     <div>
                       <div className="font-semibold text-white text-sm mb-0.5">{t}</div>
@@ -335,14 +354,16 @@ export default async function HomePage() {
             <ScrollReveal direction="left" delay={100}>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { val:'99%', label:'System Uptime',     icon:'⚡' },
-                  { val:'4hr', label:'Fault Response',    icon:'🔧' },
-                  { val:'80%+',label:'Performance Ratio', icon:'📈' },
-                  { val:'25yr',label:'Panel Warranty',    icon:'🛡️' },
+                  { val:'99%',  label:'System Uptime',     Icon: Activity },
+                  { val:'4hr',  label:'Fault Response',    Icon: Sparkles },
+                  { val:'80%+', label:'Performance Ratio', Icon: BarChart3 },
+                  { val:'25yr', label:'Panel Warranty',    Icon: ShieldCheck },
                 ].map(item=>(
                   <Tilt3D key={item.label} intensity={8}>
                     <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center">
-                      <div className="text-2xl mb-2">{item.icon}</div>
+                      <div className="w-10 h-10 rounded-xl bg-solar/20 border border-solar/30 flex items-center justify-center mx-auto mb-3">
+                        <item.Icon size={18} className="text-solar" />
+                      </div>
                       <div className="font-display font-extrabold text-3xl text-solar mb-1">{item.val}</div>
                       <div className="text-white/50 text-xs">{item.label}</div>
                     </div>
@@ -439,30 +460,69 @@ export default async function HomePage() {
 
       {/* ── CTA PARALLAX ──────────────────────────────────── */}
       <ParallaxHero
-        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85"
+        src="https://images.unsplash.com/photo-1559302504-64aae6ca6890?w=1920&q=85"
         speed={0.25}
-        overlay="rgba(5,8,15,0.75)"
-        className="py-24"
+        overlayStyle="hero"
+        className="py-28"
       >
         <div className="section-inner">
-          <div className="max-w-2xl mx-auto text-center">
-            <ScrollReveal>
-              <div className="label mb-4 justify-center">Get Started Today</div>
-              <h2 className="font-display font-extrabold text-white leading-tight mb-5" style={{ fontSize: 'clamp(34px,4.5vw,62px)' }}>
-                Ready to Go <span className="text-solar">Solar?</span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* Left — headline + CTAs */}
+            <ScrollReveal direction="right">
+              <div className="inline-flex items-center gap-2 bg-solar/20 border border-solar/30 rounded-full px-4 py-1.5 text-xs font-semibold text-solar mb-6 uppercase tracking-widest">
+                <span className="w-1.5 h-1.5 rounded-full bg-solar animate-pulse" /> Free Consultation
+              </div>
+              <h2 className="font-display font-extrabold text-white leading-tight mb-5 text-shadow-hero"
+                style={{ fontSize: 'clamp(36px,4.5vw,64px)' }}>
+                Ready to Switch<br />to <span className="text-solar">Clean Energy?</span>
               </h2>
-              <p className="text-white/60 text-base mb-9 max-w-md mx-auto">
-                Our experts will assess your requirements and design a custom solar solution — completely free.
+              <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-lg text-shadow-sm">
+                Our engineers will visit your site, assess your energy needs, and design a custom solar solution — at zero cost to you.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Link href="/contact" className="btn-primary px-8 py-3.5">
-                  Get a Free Quote <ArrowRight size={15}/>
+              <div className="flex flex-wrap gap-4 mb-8">
+                <Link href="/contact" className="btn-primary px-8 py-4 text-base">
+                  Get a Free Quote <ArrowRight size={16}/>
                 </Link>
-                <a href="tel:+919429767516" className="btn-outline-white px-8 py-3.5">
-                  <Phone size={14}/> Call Us Now
+                <a href="tel:+919429767516" className="btn-outline-white px-8 py-4 text-base">
+                  <Phone size={15}/> +91 94297 67516
                 </a>
               </div>
+              <div className="flex items-center gap-6 text-white/40 text-sm">
+                {['No upfront cost','Site visit included','25-yr warranty'].map(t => (
+                  <div key={t} className="flex items-center gap-1.5">
+                    <SunMedium size={13} className="text-solar" />{t}
+                  </div>
+                ))}
+              </div>
             </ScrollReveal>
+
+            {/* Right — trust cards */}
+            <ScrollReveal direction="left" delay={120}>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { num: '500+',  label: 'Projects Delivered', Icon: Sun,          sub: 'Across India' },
+                  { num: '50 MW', label: 'Capacity Installed',  Icon: Activity,     sub: 'Grid-connected' },
+                  { num: '300+',  label: 'Happy Clients',       Icon: ShieldCheck,  sub: 'Across industries' },
+                  { num: '25 yr', label: 'Panel Warranty',      Icon: Layers,       sub: 'Tier-1 equipment' },
+                ].map(({ num, label, Icon, sub }) => (
+                  <Tilt3D key={label} intensity={6}>
+                    <div className="bg-white/8 backdrop-blur-md border border-white/12 rounded-2xl p-5 hover:bg-white/12 hover:border-solar/30 transition-all duration-300">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="w-9 h-9 rounded-xl bg-solar/20 border border-solar/30 flex items-center justify-center">
+                          <Icon size={16} className="text-solar" />
+                        </div>
+                        <div className="h-1 w-8 rounded-full bg-solar/40" />
+                      </div>
+                      <div className="font-display font-extrabold text-2xl text-white mb-0.5">{num}</div>
+                      <div className="text-white/70 text-sm font-medium">{label}</div>
+                      <div className="text-white/35 text-xs mt-0.5">{sub}</div>
+                    </div>
+                  </Tilt3D>
+                ))}
+              </div>
+            </ScrollReveal>
+
           </div>
         </div>
       </ParallaxHero>

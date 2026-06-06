@@ -3,10 +3,14 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, MapPin, Zap } from 'lucide-react'
+import { ArrowRightIcon, MapPinIcon, BoltIcon } from '@/components/HeroIcons'
 import ParallaxHero from '@/components/ParallaxHero'
 import Tilt3D from '@/components/Tilt3D'
 import ScrollReveal from '@/components/ScrollReveal'
+
+const ArrowRight = ArrowRightIcon
+const MapPin     = MapPinIcon
+const Zap        = BoltIcon
 
 const projects = [
   { id: 1, category: 'epc', sector: 'industrial', title: 'Industrial Solar Plant — Rajkot',      location: 'Rajkot, Gujarat',      capacity: '2 MW',    type: 'Ground Mounted EPC',    desc: 'End-to-end EPC delivery for a large manufacturing unit. Includes custom string inverter design and SCADA integration.',    tags: ['EPC','Industrial'], img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80' },
